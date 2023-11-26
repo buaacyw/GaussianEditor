@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip=22.3.1
+  - pip:
+    - submodules/diff-gaussian-rasterization
+    - submodules/simple-knn

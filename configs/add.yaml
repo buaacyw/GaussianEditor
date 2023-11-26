@@ -1,0 +1,75 @@
+name: "gsedit-sd"
+tag: "${rmspace:${system.prompt_processor.prompt},_}"
+exp_root_dir: "outputs"
+seed: 0
+ 
+data_type: "gs-load"
+data:
+  batch_size: 1
+  source: ???
+  max_view_num: 96
+  eval_camera_distance: 4.0
+  camera_distance_range: [1.5, 4.0]
+  light_sample_strategy: "dreamfusion3dgs"
+  height: 512
+  width: 512
+
+  elevation_view_num: 2
+  azimuth_view_num: 8
+  # elevation_range: [-10 , 80]
+system_type: "gsedit-system-add"
+system:
+  gs_source: ???
+  prompt_processor_type: "stable-diffusion-prompt-processor"
+  prompt_processor:
+    pretrained_model_name_or_path: "runwayml/stable-diffusion-v1-5"
+    prompt: 'a bicycle parked next to a bench in a park, all covered with snow, winter'
+
+  guidance_type: "stable-diffusion-instructpix2pix-guidance"
+  guidance:
+    min_step_percent: 0.02
+    max_step_percent: 0.98
+
+
+  loggers:
+    wandb:
+      enable: false
+      project: 'threestudio_gs'
+      name: None
+
+  loss:
+#    lambda_opaque: 0.0
+    lambda_sparsity: 0.0
+    lambda_opaque: 0.0
+    lambda_l1: 10.0
+    lambda_p: 10.0
+    lambda_dds: 0.
+    lambda_anchor_color: 5
+    lambda_anchor_geo: 50
+    lambda_anchor_opacity: 50
+    lambda_anchor_scale: 50
+    lambda_move: 0
+    lambda_alpha: 0
+    lambda_scale: 0
+
+  optimizer:
+    name: Adam
+    args:
+      lr: 0.001
+      betas: [0.9, 0.99]
+      eps: 1.e-15
+
+trainer:
+  max_steps: 10000
+  log_every_n_steps: 1
+  num_sanity_val_steps: 0
+  val_check_interval: 20
+  enable_progress_bar: true
+  precision: 16-mixed
+
+checkpoint:
+  save_last: true # save at each validation time
+  save_top_k: -1
+  every_n_train_steps: ${trainer.max_steps}
+
+# white_background: true
