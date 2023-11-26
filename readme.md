@@ -35,10 +35,13 @@
  <a href='https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen'><img src='https://img.shields.io/badge/Youtube-Video-red'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 </div>
+<div align="center">
+  <b>Note: This repo is still under construction. We aim to build this repo as a swift, controllable, and interactive 3D editing tool. We welcome any collaboration. If you're interested in connecting or partnering with us, please don't hesitate to reach out via email (YIWEN002@e.ntu.edu.sg).</b>
+</div>
 
 ## Demo Videos
 <details open>
-  <summary>Swift and controllable with only 2-7 minutes.</summary>
+  <summary>Swift and controllable 3D editing with only 2-7 minutes.</summary>
 
 https://github.com/buaacyw/GaussianEditor/assets/52091468/10740174-3208-4408-b519-23f58604339e
 
@@ -48,9 +51,11 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/44797174-0242-4c82-a38
 https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918d-c4fe673d0af8
 </details>
 
-
-
+## Release
+- [11/27] 🔥 We released **GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting** and beta version of GaussianEditing WebUI.
 
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+
