@@ -1497,12 +1497,12 @@ class WebUI:
             TitlebarButton(
                 text="Getting Started",
                 icon=None,
-                href="https://nerf.studio",
+                href="https://github.com/buaacyw/GaussianEditor/blob/master/docs/webui.md",
             ),
             TitlebarButton(
                 text="Github",
                 icon="GitHub",
-                href="https://github.com/nerfstudio-project/nerfstudio",
+                href="https://github.com/buaacyw/GaussianEditor",
             ),
             TitlebarButton(
                 text="Yiwen Chen",
@@ -1512,7 +1512,7 @@ class WebUI:
             TitlebarButton(
                 text="Zilong Chen",
                 icon=None,
-                href="https://docs.nerf.studio",
+                href="https://scholar.google.com/citations?user=2pbka1gAAAAJ&hl=en",
             ),
         )
         image = TitlebarImage(

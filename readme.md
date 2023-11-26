@@ -25,11 +25,17 @@
     <br>
     <sup>3</sup>Department of Computer Science and Technology, Tsinghua University,
     <sup>4</sup>SenseTime Research,
-    
+
 </p>
 
+<div align="center">
 
-NOTE: `viser` should be installed with
-```
-pip install git+https://github.com/heheyas/viser
-```
+[//]: # (<a href='https://arxiv.org/abs/2310.15169'><img src='https://img.shields.io/badge/arXiv-2310.15169-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+ <a href='https://buaacyw.github.io/gaussian-editor/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href='https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen'><img src='https://img.shields.io/badge/Youtube-Video-red'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</div>
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
