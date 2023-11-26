@@ -54,9 +54,37 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 ## Release
 - [11/27] 🔥 We released **GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting** and beta version of GaussianEditing WebUI.
 
+## Contents
+- [Install](#install)
+- [WebUI Guide](#webui-guide)
+- [FAQ](#faq)
+- [More features](#more-features)
+- [License](#license)
+
+## Install
+Our environment has been tested on Ubuntu 22 with CUDA 11.8. Please follow [Installation](https://github.com/buaacyw/GaussianEditor/blob/master/docs/install.md).
+
+## WebUI Guide
+Please be aware that our WebUI is currently in a beta version. Powered by [Viser](https://github.com/nerfstudio-project/viser/tree/main), you can use our WebUI even if you are limited to remote server. For details, please follow [WebUI Guide](https://github.com/buaacyw/GaussianEditor/blob/master/docs/webui.md).
+
+## Command Line
+We also provide a command line version of GaussianEditor. Like WebUI, you need to specify your path to the pretrained Gaussians and COLMAP outputs as mentioned in [here](https://github.com/buaacyw/GaussianEditor/blob/1fa96851c132258e0547ba73372f37cff83c92c3/docs/webui.md?plain=1#L20).
+Please check scripts in `sciprt` folder. Simply change `data.source` to your COLMAP output directory and 
+`system.gs_source` to your pretrained Gaussians and run our demo scripts.
+
+
+## TODO
+
+The repo is still being under construction, thanks for your patience. 
+- [ ] Detailed tutorial for hyperparameter.
+- [ ] Colab.
+- [ ] Windows support.
+- [ ] Docker support.
+- [x] Realised WebUI beta version and GaussianEditor.
+
+## FAQ
 
 ## License
-
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
