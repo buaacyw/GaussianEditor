@@ -31,3 +31,6 @@ python webui.py \
     --colmap_dir ./dataset/<scene-name> \
     --gs_source ./dataset/<scene-name>/point_cloud/iteration_7000/point_cloud.ply
 ```
+#### 3. Basic Usage
+Please first take a look at our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
+

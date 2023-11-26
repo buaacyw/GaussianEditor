@@ -76,7 +76,8 @@ Please check scripts in `sciprt` folder. Simply change `data.source` to your COL
 ## TODO
 
 The repo is still being under construction, thanks for your patience. 
-- [ ] Detailed tutorial for hyperparameter.
+- [ ] Step-by-step tutorial for WebUI .
+- [ ] Tutorial for hyperparameter tuning.
 - [ ] Colab.
 - [ ] Windows support.
 - [ ] Docker support.
