@@ -36,6 +36,21 @@
 
 </div>
 
+## Demo Videos
+<details open>
+  <summary>Swift and controllable with only 2-7 minutes.</summary>
+
+https://github.com/buaacyw/GaussianEditor/assets/52091468/10740174-3208-4408-b519-23f58604339e
+
+https://github.com/buaacyw/GaussianEditor/assets/52091468/44797174-0242-4c82-a383-2d7b3d4fd693
+
+
+https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918d-c4fe673d0af8
+</details>
+
+
+
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
