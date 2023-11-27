@@ -109,4 +109,13 @@ Steps
 6. After about 7-8 minutes, you will see the result on the screen, together with `Depth Scale`. We use DPT to predict depth to align the generated Gaussians with the Gaussian scene. Unfortunately, DPT may not provide a good enough depth map, in this case, we scale the depth predicted by DPT manually.
 7. Finnally, click `End Depth Scale` to get the final result.
 
+#### 4. HyperParameter Tuning
+
+##### (1) Edit
+
+##### (2) Delete
+
+##### (3) Add
+
+
 
