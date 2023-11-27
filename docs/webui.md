@@ -31,6 +31,13 @@ python webui.py \
     --colmap_dir ./dataset/<scene-name> \
     --gs_source ./dataset/<scene-name>/point_cloud/iteration_7000/point_cloud.ply
 ```
+
+ If you are using remote server, please run the below command to map the website to your local channel.
+```bash
+ssh -L 8084:127.0.0.1:8084 your@remote.server
+```
+And then begin your edit tour at 127.0.0.1:8084.
+ 
 #### 3. Step-by-Step Guide for WebUI
 We suggest that you first take a look at our paper and our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
 The WebUI of GaussianEditor currently features five functionalities: <b>semantic tracing (3D segmentation) by text, tracing by click, edit, delete, and add.</b>
