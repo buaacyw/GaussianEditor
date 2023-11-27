@@ -69,3 +69,16 @@ Steps:
 3. After you add your point, close `Add SAM Points` and then specify the name of your desired part in `SAM Group Name`. Notice that `SAM Group Name` is only used as the name in `Semantic Group`, it won't be used as text prompt for segnmentation. 
 4. Clik `Show Semantic Mask` to view the segmentation results.
 
+##### (3) Edit
+![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/7b0a13b6-dec3-4135-b892-3bf5e4a7315d)
+
+Simply input your prompt and begin editing. You can specify the part that we want to change by switch `Semantic Group`. The default `ALL` means that the whole Gaussians will be updated. After the training begins, you can view the current edit 2D frames by opening `Show Edit Frame`.
+
+##### (4) Delete
+
+![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/09c9da14-7ac0-4903-9688-39f095428a39)
+
+Same step as <b>Edit</b>, but you must specify masks in `Semantic Group`. The masked part will be delete and than we use 2D inpainting methods to fix the artifacts cased by this action. Note that the `Text` is used to fix the artifacts on background. Therefore, you should not input the object category into `Text` but rather the background descriptions.  
+
+##### (5) Add
+
