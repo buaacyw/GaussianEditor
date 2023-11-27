@@ -35,8 +35,9 @@ python webui.py \
 We suggest that you first take a look at our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
 The WebUI of GaussianEditor currently features five functionalities: <b>semantic tracing (3D segmentation) by text, tracing by click, edit, delete, and add.</b>
 
-We first introduce the basic usages of our WebUI and then explain the above five functionalities in order.
+Our WebUI requires cameras output from COLMAP to provide the training perspectives for <b>segmentation, edit, and delete</b>. Currently, we only accept `PINHOLE` cameras. We first introduce the basic usages of our WebUI and then explain the above five functionalities in order.
 
-##### Basic Usage
-
+##### (1) Basic Usage
+<img width="235" alt="1701045938591" src="https://github.com/buaacyw/GaussianEditor/assets/52091468/bcb8ef14-651b-47d8-b816-064ed72cab8c">
+- `Resolution`. Resolution of the renderings 
 
