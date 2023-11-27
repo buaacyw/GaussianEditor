@@ -35,7 +35,7 @@ python webui.py \
 We suggest that you first take a look at our paper and our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
 The WebUI of GaussianEditor currently features five functionalities: <b>semantic tracing (3D segmentation) by text, tracing by click, edit, delete, and add.</b>
 
-Our WebUI requires cameras output from COLMAP to provide the training perspectives for <b>segmentation, edit, and delete</b>. Currently, we only accept `PINHOLE` cameras. We first introduce the basic usages of our WebUI and then explain the above five functionalities in order.
+Our WebUI requires cameras output from COLMAP to provide the training perspectives for <b>segmentation, edit, and delete</b>. Currently, we only accept `PINHOLE` cameras. Notice that the current views of your WebUI won't affect the training process since we will load COLMAP cameras for training. We first introduce the basic usages of our WebUI and then explain the above five functionalities in order.
 
 ##### (1) Basic Usage
 <img width="235" alt="1701045938591" src="https://github.com/buaacyw/GaussianEditor/assets/52091468/bcb8ef14-651b-47d8-b816-064ed72cab8c">
@@ -44,5 +44,11 @@ Our WebUI requires cameras output from COLMAP to provide the training perspectiv
 - `FoV Scaler`. Scale the FoV of renderings sent to your screen. Same as `Resolution`, it will only affect `add`. Typically you don't need to change this.
 - `Renderer Output`. Render type sent to your screen. Depth will be updated in the future.
 - `Save Gaussian`. After your editing. Click it to save your Gaussians to `ui_result`. You can then relaunch WebUI and load the saved Gaussian to apply sencond time editing. There is still some bugs for directly editing Gaussians multiple time with single launch of our WebUI.
-- `Show Frame`. Due to the view navigation setting of [Viser](https://github.com/nerfstudio-project/viser/tree/main/examples), it's a bit hard to control cameras because the frams of Gaussian scenes are typically not default to be standard. So you may find yourself hard to control your views. In this case, click `Show Frame` and jump to one of the preload camera views from COLMAP. 
+- `Show Frame`. Due to the view navigation setting of [Viser](https://github.com/nerfstudio-project/viser/tree/main/examples), it's a bit hard to control cameras because the frams of Gaussian scenes are typically not default to be standard. So you may find yourself hard to control your views. In this case, click `Show Frame` and jump to one of the preload camera views from COLMAP.
 
+##### (1) Semantic Tracing by Text
+
+  ![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/1e66ce57-aa79-4144-9b4c-9918712ce0fb)
+
+Steps:
+1. Specify `Text Seg Prompt` to the desired target.
