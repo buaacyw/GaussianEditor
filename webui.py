@@ -138,7 +138,6 @@ class WebUI:
         self.sam_predictor = self.text_segmentor.model.sam
         self.sam_predictor.is_image_set = True
         self.sam_features = {}
-        self.sam_points3d = {}
         self.semantic_gauassian_masks = {}
         self.semantic_gauassian_masks["ALL"] = torch.ones_like(self.gaussian._opacity)
 
@@ -510,7 +509,6 @@ class WebUI:
                 masks, semantic_gaussian_mask = self.update_sam_mask_with_point_prompt(
                     save_mask=True
                 )
-                self.sam_points3d[text_prompt] = self.points3d
 
             self.semantic_gauassian_masks[text_prompt] = semantic_gaussian_mask
             self.semantic_groups.options += (text_prompt,)
