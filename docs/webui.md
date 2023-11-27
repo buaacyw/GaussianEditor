@@ -48,7 +48,17 @@ Our WebUI requires cameras output from COLMAP to provide the training perspectiv
 
 ##### (1) Semantic Tracing by Text
 
-  ![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/1e66ce57-aa79-4144-9b4c-9918712ce0fb)
+![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/1e66ce57-aa79-4144-9b4c-9918712ce0fb)
 
 Steps:
 1. Specify `Text Seg Prompt` to the desired target.
+2. Click `Tracing Begins!`.
+3. After 30-60 seconds, `Semantic Group` will add a new group, named by your text in `Text Seg Prompt`.
+4. Clik `Show Semantic Mask` to view the segmentation results.
+
+- `Text Seg Prompt`. Prompt for conduct prompt SAM.
+- `Semantic Group`. All your segmentation results. Switch between them!
+- `Seg Camera Nums`. How many views are we used for SAM. Less views, faster segmentation. Typically 12 views will generate a good enough result.
+- `Show Semantic Mask`. Show your mask. Notice that this won't affect training.
+
+##### (1) Semantic Tracing by Text
