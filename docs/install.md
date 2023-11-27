@@ -12,7 +12,6 @@ CUDA version 11.8
 ```
 mkdir extern && cd extern
 git clone https://github.com/heheyas/viser 
-cd viser
 pip install -e viser
 cd ..
 ```
