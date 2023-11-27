@@ -31,6 +31,12 @@ python webui.py \
     --colmap_dir ./dataset/<scene-name> \
     --gs_source ./dataset/<scene-name>/point_cloud/iteration_7000/point_cloud.ply
 ```
-#### 3. Basic Usage
-Please first take a look at our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
+#### 3. Step-by-Step Guide for WebUI
+We suggest that you first take a look at our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
+The WebUI of GaussianEditor currently features five functionalities: <b>semantic tracing (3D segmentation) by text, tracing by click, edit, delete, and add.</b>
+
+We first introduce the basic usages of our WebUI and then explain the above five functionalities in order.
+
+##### Basic Usage
+
 

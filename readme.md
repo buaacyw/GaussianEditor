@@ -33,6 +33,7 @@
 [//]: # (<a href='https://arxiv.org/abs/2310.15169'><img src='https://img.shields.io/badge/arXiv-2310.15169-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
  <a href='https://buaacyw.github.io/gaussian-editor/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <a href='https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen'><img src='https://img.shields.io/badge/Youtube-Video-red'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href='https://github.com/buaacyw/GaussianEditor/blob/master/LICENSE.txt'><img src='https://img.shields.io/badge/License-MIT-blue'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 </div>
 <div align="center">
@@ -57,9 +58,9 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 ## Contents
 - [Install](#install)
 - [WebUI Guide](#webui-guide)
+- [Command Line](#command-line)
+- [TODO](#todo)
 - [FAQ](#faq)
-- [More features](#more-features)
-- [License](#license)
 
 ## Install
 Our environment has been tested on Ubuntu 22 with CUDA 11.8. Please follow [Installation](https://github.com/buaacyw/GaussianEditor/blob/master/docs/install.md).
@@ -84,8 +85,5 @@ The repo is still being under construction, thanks for your patience.
 - [x] Realised WebUI beta version and GaussianEditor.
 
 ## FAQ
-
-## License
-Distributed under the MIT License. See `LICENSE` for more information.
 
 
