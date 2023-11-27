@@ -82,3 +82,18 @@ Same step as <b>Edit</b>, but you must specify masks in `Semantic Group`. The ma
 
 ##### (5) Add
 
+It's a bit of complex to use <b>Add</b>, so we strong suggest you to view our video first.
+
+![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/de41f8a5-7b61-4501-84fd-16f4444fc02a)
+
+Steps
+1. Specify inpainting masks. First click `Draw Bounding Box` and then click on the screen. First Left Up then Right Down. You can seed the pixel coordinates in `Left Up` and `Right Down` in the order of Width and Height. You can also directly input value to `Left Up` and `Right Down`. 
+2. Specify text you want to inpaint in `Text`.
+3. Click `Edit Begin!`. After clicking, the camera view and 2D masks used for inpainting will be fixed, so you can now freely move your camera views and click on the screen.
+
+
+
+
+
+
+
