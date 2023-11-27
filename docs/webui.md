@@ -54,11 +54,18 @@ Steps:
 1. Specify `Text Seg Prompt` to the desired target.
 2. Click `Tracing Begins!`.
 3. After 30-60 seconds, `Semantic Group` will add a new group, named by your text in `Text Seg Prompt`.
-4. Clik `Show Semantic Mask` to view the segmentation results.
+4. Click `Show Semantic Mask` to view the segmentation results.
 
 - `Text Seg Prompt`. Prompt for conduct prompt SAM.
 - `Semantic Group`. All your segmentation results. Switch between them!
 - `Seg Camera Nums`. How many views are we used for SAM. Less views, faster segmentation. Typically 12 views will generate a good enough result.
 - `Show Semantic Mask`. Show your mask. Notice that this won't affect training.
 
-##### (1) Semantic Tracing by Text
+##### (2) Tracing by Click
+
+Steps:
+1. Open `Enable SAM` and `Add SAM Points`.
+2. Click on the part that you want to segment. Typically you don't need to move your views since adding point from single view can already provides nice results, but if you want, you need to first close `Add SAM Points`, then move your views and then open it.
+3. After you add your point, close `Add SAM Points` and then specify the name of your desired part in `SAM Group Name`. Notice that `SAM Group Name` is only used as the name in `Semantic Group`, it won't be used as text prompt for segnmentation. 
+4. Clik `Show Semantic Mask` to view the segmentation results.
+
