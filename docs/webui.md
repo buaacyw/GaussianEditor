@@ -54,11 +54,31 @@ Steps:
 1. Specify `Text Seg Prompt` to the desired target.
 2. Click `Tracing Begins!`.
 3. After 30-60 seconds, `Semantic Group` will add a new group, named by your text in `Text Seg Prompt`.
-4. Clik `Show Semantic Mask` to view the segmentation results.
+4. Click `Show Semantic Mask` to view the segmentation results.
 
 - `Text Seg Prompt`. Prompt for conduct prompt SAM.
 - `Semantic Group`. All your segmentation results. Switch between them!
 - `Seg Camera Nums`. How many views are we used for SAM. Less views, faster segmentation. Typically 12 views will generate a good enough result.
 - `Show Semantic Mask`. Show your mask. Notice that this won't affect training.
 
-##### (1) Semantic Tracing by Text
+##### (2) Tracing by Click
+
+Steps:
+1. Open `Enable SAM` and `Add SAM Points`.
+2. Click on the part that you want to segment. Typically you don't need to move your views since adding point from single view can already provides nice results, but if you want, you need to first close `Add SAM Points`, then move your views and then open it.
+3. After you add your point, close `Add SAM Points` and then specify the name of your desired part in `SAM Group Name`. Notice that `SAM Group Name` is only used as the name in `Semantic Group`, it won't be used as text prompt for segnmentation. 
+4. Clik `Show Semantic Mask` to view the segmentation results.
+
+##### (3) Edit
+![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/7b0a13b6-dec3-4135-b892-3bf5e4a7315d)
+
+Simply input your prompt and begin editing. You can specify the part that we want to change by switch `Semantic Group`. The default `ALL` means that the whole Gaussians will be updated. After the training begins, you can view the current edit 2D frames by opening `Show Edit Frame`.
+
+##### (4) Delete
+
+![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/09c9da14-7ac0-4903-9688-39f095428a39)
+
+Same step as <b>Edit</b>, but you must specify masks in `Semantic Group`. The masked part will be delete and than we use 2D inpainting methods to fix the artifacts cased by this action. Note that the `Text` is used to fix the artifacts on background. Therefore, you should not input the object category into `Text` but rather the background descriptions.  
+
+##### (5) Add
+
