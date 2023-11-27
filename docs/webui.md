@@ -40,6 +40,9 @@ Our WebUI requires cameras output from COLMAP to provide the training perspectiv
 ##### (1) Basic Usage
 <img width="235" alt="1701045938591" src="https://github.com/buaacyw/GaussianEditor/assets/52091468/bcb8ef14-651b-47d8-b816-064ed72cab8c">
 
-- `Resolution`. Resolution of the renderings that sent to your screen. Note that changing this won't affect the training resolution for <b>edit, and delete</b>, which is fixed to 512. However, it would affect the 2D inpainting used in `add` since we ask users for providing a 2D mask. If you find your WebUI very slow, please lower `Resolution`.
-- `Resolution`. Resolution of the renderings 
+- `Resolution`. Resolution of renderings sent to your screen. Note that changing this won't affect the training resolution for <b>edit, and delete</b>, which is fixed to 512. However, it would affect the 2D inpainting used in `add` since we ask users for providing a 2D mask. If you find your WebUI very slow, please lower `Resolution`.
+- `FoV Scaler`. Scale the FoV of renderings sent to your screen. Same as `Resolution`, it will only affect `add`. Typically you don't need to change this.
+- `Renderer Output`. Render type sent to your screen. Depth will be updated in the future.
+- `Save Gaussian`. After your editing. Click it to save your Gaussians to `ui_result`. You can then relaunch WebUI and load the saved Gaussian to apply sencond time editing. There is still some bugs for directly editing Gaussians multiple time with single launch of our WebUI.
+- `Show Frame`. Due to the view navigation setting of [Viser](https://github.com/nerfstudio-project/viser/tree/main/examples), it's a bit hard to control cameras because the frams of Gaussian scenes are typically not default to be standard. So you may find yourself hard to control your views. In this case, click `Show Frame` and jump to one of the preload camera views from COLMAP. 
 
