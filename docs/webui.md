@@ -32,12 +32,14 @@ python webui.py \
     --gs_source ./dataset/<scene-name>/point_cloud/iteration_7000/point_cloud.ply
 ```
 #### 3. Step-by-Step Guide for WebUI
-We suggest that you first take a look at our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
+We suggest that you first take a look at our paper and our [demo video](https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen).
 The WebUI of GaussianEditor currently features five functionalities: <b>semantic tracing (3D segmentation) by text, tracing by click, edit, delete, and add.</b>
 
 Our WebUI requires cameras output from COLMAP to provide the training perspectives for <b>segmentation, edit, and delete</b>. Currently, we only accept `PINHOLE` cameras. We first introduce the basic usages of our WebUI and then explain the above five functionalities in order.
 
 ##### (1) Basic Usage
 <img width="235" alt="1701045938591" src="https://github.com/buaacyw/GaussianEditor/assets/52091468/bcb8ef14-651b-47d8-b816-064ed72cab8c">
+
+- `Resolution`. Resolution of the renderings that sent to your screen. Note that changing this won't affect the training resolution for <b>edit, and delete</b>, which is fixed to 512. However, it would affect the 2D inpainting used in `add` since we ask users for providing a 2D mask. If you find your WebUI very slow, please lower `Resolution`.
 - `Resolution`. Resolution of the renderings 
 
