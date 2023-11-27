@@ -50,3 +50,4 @@ ninja
 easydict
 albumentations==0.5.2
 webdataset
+git+https://github.com/luca-medeiros/lang-segment-anything.git

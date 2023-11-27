@@ -56,6 +56,9 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 - [11/27] 🔥 We released **GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting** and beta version of GaussianEditing WebUI.
 
 ## Contents
+- [Demo Videos](#demo-videos)
+- [Release](#release)
+- [Contents](#contents)
 - [Install](#install)
 - [WebUI Guide](#webui-guide)
 - [Command Line](#command-line)
