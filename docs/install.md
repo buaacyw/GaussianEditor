@@ -1,8 +1,9 @@
 1. Clone our repo
-`git clone https://github.com/buaacyw/GaussianEditor.git&&cd GaussianEditor`
+`git clone https://github.com/buaacyw/GaussianEditor.git && cd GaussianEditor`
 
-2. Install pytorch
-   
+2. Create Virtual environment and install pytorch
+`conda create -n GaussianEditor python==3.8 && conda activate GaussianEditor`
+
 CUDA version 11.7
 `pip install torch==2.0.1+cu117 torchvision==0.15.2+cu117 --extra-index-url https://download.pytorch.org/whl/cu117`
 
