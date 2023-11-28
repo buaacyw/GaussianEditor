@@ -61,7 +61,7 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 - [Contents](#contents)
 - [Install](#install)
 - [WebUI Guide](#webui-guide)
-- [Hyperparameter Tuning](#hyperparameter-tuning)
+- [Hyperparameter Tuning](#bad-results?)
 - [Command Line](#command-line)
 - [TODO](#todo)
 - [FAQ](#faq)
@@ -72,9 +72,9 @@ Our environment has been tested on Ubuntu 22, CUDA 11.8 with 3090 and A6000. Ple
 ## WebUI Guide
 Please be aware that our WebUI is currently in a beta version. Powered by [Viser](https://github.com/nerfstudio-project/viser/tree/main), you can use our WebUI even if you are limited to remote server. For details, please follow [WebUI Guide](https://github.com/buaacyw/GaussianEditor/blob/master/docs/webui.md).
 
-## Hyperparameter Tuning
+## Bad Results?
 
-The demand for 3D editing is very diverse. For instance, if you only want to change textures and materials or significantly modify geometry, it's clear that a one-size-fits-all hyperparameter won't work. Therefore, we cannot provide a default hyperparameter setting that works effectively in all scenarios. Therefore, if your results do not meet expectations, please refer to our hyperparameter tuning documentation. In it, we detail the function of each hyperparameter and advise on which parameters to adjust when you encounter specific issues.
+The demand for 3D editing is very diverse. For instance, if you only want to change textures and materials or significantly modify geometry, it's clear that a one-size-fits-all hyperparameter won't work. Therefore, we cannot provide a default hyperparameter setting that works effectively in all scenarios. Therefore, if your results do not meet expectations, please refer to our [hyperparameter tuning](https://github.com/buaacyw/GaussianEditor/blob/master/docs/hyperparameter.md) document. In it, we detail the function of each hyperparameter and advise on which parameters to adjust when you encounter specific issues. 
 
 ## Command Line
 We also provide a command line version of GaussianEditor. Like WebUI, you need to specify your path to the pretrained Gaussians and COLMAP outputs as mentioned in [here](https://github.com/buaacyw/GaussianEditor/blob/1fa96851c132258e0547ba73372f37cff83c92c3/docs/webui.md?plain=1#L20).
