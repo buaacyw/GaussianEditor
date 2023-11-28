@@ -60,8 +60,12 @@ Our WebUI requires cameras output from COLMAP to provide the training perspectiv
 Steps:
 1. Specify `Text Seg Prompt` to the desired target.
 2. Click `Tracing Begins!`.
-3. After 30-60 seconds, `Semantic Group` will add a new group, named by your text in `Text Seg Prompt`.
-4. Click `Show Semantic Mask` to view the segmentation results.
+3. After 30-60 seconds, you can begin to scale the `Seg Threshold`, which controls the confidence score of segmentation.
+   
+![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/eac3b13f-46bd-4b87-bbed-3c820fbd016a)
+
+4. Click `End Seg Scale!` to get the final result.
+5. `Semantic Group` will add a new group, named by your text in `Text Seg Prompt`. Switch the group to view differnet masks.
 
 - `Text Seg Prompt`. Prompt for conduct prompt SAM.
 - `Semantic Group`. All your segmentation results. Switch between them!
