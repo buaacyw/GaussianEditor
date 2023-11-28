@@ -28,7 +28,7 @@ pip install -e gaussiansplatting/submodules/diff-gaussian-rasterization
 pip install -e gaussiansplatting/submodules/simple-knn
 ```
 
-5. (Optional) Download Wonder3D checkpoints [Required by 3D inpainting] using our script:
+7. (Optional) Download Wonder3D checkpoints [Required by 3D inpainting] using our script:
 ```bash
 sh download_wonder3d.sh
 ```
