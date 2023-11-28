@@ -79,7 +79,7 @@ Steps:
 ##### (3) Edit
 ![image](https://github.com/buaacyw/GaussianEditor/assets/52091468/7b0a13b6-dec3-4135-b892-3bf5e4a7315d)
 
-Simply input your prompt and begin editing. You can specify the part that we want to change by switch `Semantic Group`. The default `ALL` means that the whole Gaussians will be updated. After the training begins, you can view the current edit 2D frames by opening `Show Edit Frame`.
+Simply input your prompt and begin editing. You can specify the part that we want to change by switch `Semantic Group`. The default `ALL` means that the whole Gaussians will be updated, you need to decrease densification in this case, as mentioned [here](https://github.com/buaacyw/GaussianEditor/blob/95a0bbfb0e88c84a963ab3b67eed416b4af0fc60/docs/hyperparameter.md?plain=1#L22). After the training begins, you can view the current edit 2D frames by opening `Show Edit Frame`.
 
 ##### (4) Delete
 
@@ -108,14 +108,6 @@ Steps
 
 6. After about 7-8 minutes, you will see the result on the screen, together with `Depth Scale`. We use DPT to predict depth to align the generated Gaussians with the Gaussian scene. Unfortunately, DPT may not provide a good enough depth map, in this case, we scale the depth predicted by DPT manually.
 7. Finnally, click `End Depth Scale` to get the final result.
-
-#### 4. HyperParameter Tuning
-
-##### (1) Edit
-
-##### (2) Delete
-
-##### (3) Add
 
 
 
