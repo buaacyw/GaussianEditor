@@ -53,5 +53,29 @@ However, if you reduce the `Densify Interval`, you should lower the `Anchor Mult
 Typically you don't need to modify this.
 
 ## Delete
+- `Camera Num`: Same as in <b>Edit</b>. 
+After deleting the Gaussians in the traced area, holes or artifacts are created. 
+To repair these areas, we rely on [Controlnet-inpainting](https://huggingface.co/lllyasviel/control_v11p_sd15_inpaint) to generate repaired images from various viewpoints. 
+This parameter defines the number of viewpoints from which images are generated. 
+The higher it is, the more time it takes to generate, but the better the results.
+
+- `Total Step`: Same as in <b>Edit</b>.
+
+
+- `Edit Interval`&`Edit Begin Step`&`Edit Until Step`: Disabled in <b>Delete</b>. This is because we generate inpainted 2D images for each view only once, which is done to increase speed.
+
+- `Densification`: Same as in <b>Edit</b>. But notice that the traced area will be changed to the local area of the deleted object, which makes the number of traced Gaussians relatively less.
+So if you find it hard to fix the holes caused by deleting, increase densification.
+
+- `Inpaint Scale`: As mentioned above, we need to trace the local area of the deleted object. This parameter defines how local we will trace.
+The higher this value, the more areas are defined as local, resulting in a greater number of Gaussians being traced. 
+
+- `Mask Dilate`&`Fix Holes`: When we query [Controlnet-inpainting](https://huggingface.co/lllyasviel/control_v11p_sd15_inpaint), we need to provide it a 2D mask to tell it the area that we want to restore.
+Typically we first detect the local areas according  to `Inpaint Scale` and then project these local areas to get 2D masks.
+These 2D masks will then dilate by `Mask Dilate` pixel. If `Fix Holes` is enabled, the holes in the dilated 2D masks will be filled in.
+This process aids Controlnet in generating better inpainted 2D images, particularly in scenes similar to those in our demo videos.
+
+- `Learning Rate Scaler`&`Anchor Loss`: Same as in <b>Edit</b>.
 
 ## Add
+Currently we don't have any hyperparameters for tuning in <b>Add</b>.
