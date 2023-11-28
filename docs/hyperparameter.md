@@ -7,6 +7,8 @@
 ## Semantic Tracing
 - `Seg Camera Nums`: The number of camera views that we perform semantic unprojection. It controls the number of times that we query [SAM](https://github.com/facebookresearch/segment-anything). Reducing this number speeds up semantic tracing. However, if you notice inaccuracies in your mask, consider increasing this value for better results.
 
+- ``
+
 ## Edit
 - `Camera Num`: The camera numbers used for training. If you find that the overall editing results are satisfactory, but some views appear weird (blurry, incomplete), this may be due to sparse training cameras at certain angles. 
 Increasing the number of views for training cameras might resolve this issue. However, it's important to note that we sample training cameras from the Colmap cameras you provide. Therefore, if the Colmap cameras are sparse in that view, increasing this value won't improve the problem. 
