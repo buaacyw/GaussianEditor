@@ -26,9 +26,31 @@ The smaller the interval and the larger the percent, the stronger the densificat
 If you notice a lot of noise in the image, it's very likely due to over-densification. 
 Since only the traced areas (as defined by the `Semantic Group`) will be densified, setting the `Semantic Group` to `ALL` means millions of points in the entire scene will be densified.
 In such cases, you need to reduce the degree of densification.
-Our default setting of 100 & 0.01 is designed for updating only certain areas of the scene.
+Our default setting of 100 & 0.01 works well in most cases, as it is intended for updating only specific areas of the scene. 
+In some instances, if you wish to make minor texture modifications or significant edits, consider reducing or increasing densification.
+During each densification, low-opacity Gaussians are also pruned, so if you aim to remove certain parts, you should set `Max Densify Percent` to 0 but increase the `Densify Interval`.
 
+- `Edit Interval`: Interval for updating the edited images. Lowering this value will result in more frequent updates of the edited 2D images, thereby enhancing the effect but also increasing the training time, and vice versa.
+The default setting of 10 works well in most situations.
 
+- `Edit Begin Step`&`Edit Until Step`: Period for updating edited images. same as `Edit Interval`, increase this period will result in better results but also increase the training time, and vice versa.
+
+- `Learning Rate Scaler`: Learning rate scaler for Gaussians. This value will be multiplied to the learning rate of corresponding properties of Gaussians.
+The default setting is a moderate value. If you aim to only update textures, consider lowering other learning rates.
+
+- `Lambda L1`&`Lambda Perceptual`: Loss weight for L1 loss and perceptual loss. Typically you don't have to modify it.
+
+- `Anchor Init G0`&`Anchor Init`&`Anchor Multiplier`: Anchor loss setting. 
+As mentioned in our paper, the proposed hierarchical gaussian splatting (HGS) will apply anchor loss to elder generations.
+`Anchor Init G0` defines the initial anchor loss weight we apply to Generation 0 (i.e. the origin Gaussians).
+`Anchor Init` defines the initial anchor loss weight we apply to i-th generation when (i+1)-th generation is generated.
+After each densification, the anchor loss weights of all Gaussians are multiplied by `Anchor Multiplier`.
+So lowering these values will decrease the anchor loss weight, which increases the fluidity of the Gaussians.
+Typically, you don't need to change these values.
+However, if you reduce the `Densify Interval`, you should lower the `Anchor Multiplier` to achieve balance, and vice versa.
+
+- `Lambda Anchor`: Anchor loss weight for different properties. Anchor loss weight defined above will be multiplied by `Lambda Anchor` for different properties.
+Typically you don't need to modify this.
 
 ## Delete
 
