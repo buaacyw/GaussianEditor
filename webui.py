@@ -93,7 +93,6 @@ class WebUI:
         self.port = 8084
         # training cfg
 
-        self.mask_thres = 0.5
         self.use_sam = False
         self.guidance = None
         self.stop_training = False
@@ -203,8 +202,13 @@ class WebUI:
             )
 
             self.seg_cam_num = self.server.add_gui_slider(
-                "Seg Camera Nums", min=6, max=200, step=1, initial_value=36
+                "Seg Camera Nums", min=6, max=200, step=1, initial_value=24
             )
+
+            self.mask_thres = self.server.add_gui_slider(
+                "Seg Threshold", min=0.2, max=0.99, step=0.01, initial_value=0.7
+            )
+
 
             self.show_semantic_mask = self.server.add_gui_checkbox(
                 "Show Semantic Mask", initial_value=False
@@ -511,7 +515,8 @@ class WebUI:
                 )
 
             self.semantic_gauassian_masks[text_prompt] = semantic_gaussian_mask
-            self.semantic_groups.options += (text_prompt,)
+            if text_prompt not in self.semantic_groups.options:
+                self.semantic_groups.options += (text_prompt,)
             self.semantic_groups.value = text_prompt
 
         @self.semantic_groups.on_update
@@ -741,7 +746,7 @@ class WebUI:
 
         weights /= weights_cnt + 1e-7
 
-        selected_mask = weights > self.mask_thres
+        selected_mask = weights > self.mask_thres.value
         selected_mask = selected_mask[:, 0]
 
         # self.gaussian.set_mask(selected_mask)
@@ -894,7 +899,7 @@ class WebUI:
                 os.makedirs("tmp",exist_ok=True)
                 img.save(f"./tmp/{save_name}-{id}.jpg")
 
-        selected_mask = weights > self.mask_thres
+        selected_mask = weights > self.mask_thres.value
         selected_mask = selected_mask[:, 0]
 
         return masks, selected_mask
@@ -935,7 +940,7 @@ class WebUI:
             self.gaussian.apply_weights(cur_cam, weights, weights_cnt, mask)
 
         weights /= weights_cnt + 1e-7
-        selected_mask = weights > self.mask_thres
+        selected_mask = weights > self.mask_thres.value
         selected_mask = selected_mask[:, 0]
 
         self.gaussian.set_mask(selected_mask)
