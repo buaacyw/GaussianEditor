@@ -20,7 +20,7 @@ pip install -e viser
 cd ..
 ```
 
-5. Build Gaussian Splatting Renderer and submodules
+6. Build Gaussian Splatting Renderer and submodules
 ```
 pip install -e gaussiansplatting/submodules/diff-gaussian-rasterization
 pip install -e gaussiansplatting/submodules/simple-knn
