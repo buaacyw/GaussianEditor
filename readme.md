@@ -66,7 +66,7 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 - [FAQ](#faq)
 
 ## Install
-Our environment has been tested on Ubuntu 22 with CUDA 11.8. Please follow [Installation](https://github.com/buaacyw/GaussianEditor/blob/master/docs/install.md).
+Our environment has been tested on Ubuntu 22, CUDA 11.8 with 3090 and A6000. Please follow [Installation](https://github.com/buaacyw/GaussianEditor/blob/master/docs/install.md).
 
 ## WebUI Guide
 Please be aware that our WebUI is currently in a beta version. Powered by [Viser](https://github.com/nerfstudio-project/viser/tree/main), you can use our WebUI even if you are limited to remote server. For details, please follow [WebUI Guide](https://github.com/buaacyw/GaussianEditor/blob/master/docs/webui.md).
