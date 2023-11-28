@@ -762,7 +762,7 @@ class WebUI:
         weights /= weights_cnt + 1e-7
         self.seg_scale_end_button.visible = True
         self.mask_thres.visible = True
-
+        self.show_semantic_mask.value = True
         while True:
             if self.seg_scale:
                 selected_mask = weights > self.mask_thres.value
