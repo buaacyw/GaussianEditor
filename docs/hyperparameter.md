@@ -17,6 +17,17 @@ The rendering and backpropagation speeds of Gaussian Splatting are extremely fas
 We stop updating the edited 2D images after `Edit Until Step`, meaning that from the `Edit Until Step` to the `Total Step`, Gaussians only fit on a fixed dataset. 
 Generally, we set the `Total Step` to be slightly higher than the `Edit Until Step` to ensure proper fitting of the Gaussians.
 
+- `Densify Until Step`: When do we end Gaussians densification. It's typically set a little larger than `Total step` to ensure better fitting.
+
+- `Densify Interval`&`Max Densify Percent`: How often and how much do we densify the Guassians. 
+As mentioned in our paper, different from vanilla [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting), we only densify those Gaussians whose gradients rank in the top `Max Densify Percent` to adapt to the unstable generative loss.
+These two values need to be carefully and coordinately set. 
+The smaller the interval and the larger the percent, the stronger the densification.
+If you notice a lot of noise in the image, it's very likely due to over-densification. 
+Since only the traced areas (as defined by the `Semantic Group`) will be densified, setting the `Semantic Group` to `ALL` means millions of points in the entire scene will be densified.
+In such cases, you need to reduce the degree of densification.
+Our default setting of 100 & 0.01 is designed for updating only certain areas of the scene.
+
 
 
 ## Delete
