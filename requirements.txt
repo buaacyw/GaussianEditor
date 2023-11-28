@@ -46,6 +46,7 @@ rembg
 git+https://github.com/ashawkey/kiuikit
 scikit-learn
 scipy
+viser
 ninja
 easydict
 albumentations==0.5.2
