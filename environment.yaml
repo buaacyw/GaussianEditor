@@ -2,13 +2,18 @@ name: GaussianEditor
 channels:
   - pytorch
   - nvidia
+  - conda-forge
   - defaults
 dependencies:
   - python=3.8
   - pip
+  # for pytorch and support custom C++ extensions
   - cuda-nvcc=11.7*
   - cuda-libraries-dev=11.7*
   - pytorch=2.0.1=py3.8_cuda11.7*
   - torchvision=0.15.2=py38_cu117
+  # for triton
+  - lit=17.0.6
+  - cmake=3.27.9
   - pip:
     - -r requirements.lock.txt
