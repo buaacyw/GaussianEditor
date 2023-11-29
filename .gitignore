@@ -199,3 +199,5 @@ conf/sweep/
 threestudio/utils/inpaint
 cache/
 exp/
+!threestudio/data
+!threestudio/utils/wonder3D/mvdiffusion/data

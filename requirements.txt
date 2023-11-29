@@ -2,7 +2,7 @@ omegaconf==2.3.0
 jaxtyping
 typeguard
 git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
-diffusers
+diffusers[torch]==0.19.3
 transformers==4.28.1
 accelerate
 opencv-python
