@@ -1,6 +1,6 @@
 1. Clone our repo and create Virtual environment
 ```
-git clone https://github.com/buaacyw/GaussianEditor.git && cd GaussianEditor`
+git clone https://github.com/buaacyw/GaussianEditor.git && cd GaussianEditor
 conda create -n GaussianEditor python==3.8 && conda activate GaussianEditor
 ```
 
