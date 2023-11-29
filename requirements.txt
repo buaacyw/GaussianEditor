@@ -58,3 +58,8 @@ git+https://github.com/luca-medeiros/lang-segment-anything.git
 nerfacc==0.3.3
 pyrender==0.1.45
 Pillow==9.5.0
+
+
+# gaussian splatting
+gaussiansplatting/submodules/diff-gaussian-rasterization
+gaussiansplatting/submodules/simple-knn

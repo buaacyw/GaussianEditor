@@ -1,0 +1,14 @@
+name: GaussianEditor
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - cuda-nvcc=11.7*
+  - cuda-libraries-dev=11.7*
+  - pytorch=2.0.1=py3.8_cuda11.7*
+  - torchvision=0.15.2=py38_cu117
+  - pip:
+    - -r requirements.txt
