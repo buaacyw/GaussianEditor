@@ -1,8 +1,10 @@
 omegaconf==2.3.0
 jaxtyping==0.2.19
 typeguard==4.1.5
+git+https://github.com/KAIR-BAIR/nerfacc.git@v0.3.3
+pyrender==0.1.45
 git+https://github.com/NVlabs/tiny-cuda-nn/@212104156403bd87616c1a4f73a1c5f2c2e172a9#subdirectory=bindings/torch
-diffusers[torch]==0.23.1
+diffusers[torch]==0.19.3
 transformers==4.28.1
 accelerate==0.24.1
 opencv-python==4.8.1.78
