@@ -608,16 +608,16 @@ class WebUI:
 
             T_current_target = T_world_current.inverse() @ T_world_target
 
-            for j in range(20):
+            for j in range(5):
                 T_world_set = T_world_current @ tf.SE3.exp(
-                    T_current_target.log() * j / 19.0
+                    T_current_target.log() * j / 4.0
                 )
 
                 with client.atomic():
                     client.camera.wxyz = T_world_set.rotation().wxyz
                     client.camera.position = T_world_set.translation()
 
-                time.sleep(1.0 / 60.0)
+                time.sleep(1.0 / 15.0)
             client.camera.look_at = frame.position
 
         if not hasattr(self, "begin_call"):
@@ -634,16 +634,14 @@ class WebUI:
 
                 T_current_target = T_world_current.inverse() @ T_world_target
 
-                for j in range(20):
+                for j in range(5):
                     T_world_set = T_world_current @ tf.SE3.exp(
-                        T_current_target.log() * j / 19.0
+                        T_current_target.log() * j / 4.0
                     )
 
                     with client.atomic():
                         client.camera.wxyz = T_world_set.rotation().wxyz
                         client.camera.position = T_world_set.translation()
-
-                    time.sleep(1.0 / 60.0)
                 client.camera.look_at = frame.position
 
             self.begin_call = begin_trans
@@ -918,6 +916,25 @@ class WebUI:
 
         weights /= weights_cnt + 1e-7
 
+        self.seg_scale_end_button.visible = True
+        self.mask_thres.visible = True
+        self.show_semantic_mask.value = True
+        while True:
+            if self.seg_scale:
+                selected_mask = weights > self.mask_thres.value
+                selected_mask = selected_mask[:, 0]
+                self.gaussian.set_mask(selected_mask)
+                self.gaussian.apply_grad_mask(selected_mask)
+
+                self.seg_scale = False
+            if self.seg_scale_end:
+                self.seg_scale_end = False
+                break
+            time.sleep(0.01)
+
+        self.seg_scale_end_button.visible = False
+        self.mask_thres.visible = False
+
         if save_mask:
             for id, mask in enumerate(masks):
                 mask = mask.cpu().numpy()[0, 0]
@@ -925,52 +942,7 @@ class WebUI:
                 os.makedirs("tmp",exist_ok=True)
                 img.save(f"./tmp/{save_name}-{id}.jpg")
 
-        selected_mask = weights > self.mask_thres.value
-        selected_mask = selected_mask[:, 0]
-
         return masks, selected_mask
-
-    def test_update_sam_mask(self):
-        # self.sam_features = {}
-        points3d = torch.tensor([[0.0, 0.0, 0.0]], dtype=torch.float32, device="cuda")
-        self.update_sam_mask_with_point_prompt(points3d=points3d, save_mask=True)
-
-    def update_sam_mask(self):
-        assert hasattr(self, "points3d") and len(self.points3d) > 0
-        points3d = self.points3d
-        masks = []
-        weights = torch.zeros_like(self.gaussian._opacity)
-        weights_cnt = torch.zeros_like(self.gaussian._opacity, dtype=torch.int32)
-
-        for id, frame in self.origin_frames.items():
-            # TODO: check frame dtype (float32 or uint8) and device
-            cur_cam = self.colmap_cameras[id]
-            points2ds = project(cur_cam, points3d)
-            if id in self.sam_features:
-                self.sam_predictor.features = self.sam_features[id]
-            else:
-                self.sam_predictor.set_image(
-                    np.asarray(
-                        to_pil_image(self.origin_frames[id][0].moveaxis(-1, 0).cpu())
-                    ),
-                )
-                self.sam_features[id] = self.sam_predictor.features
-            mask, _, _ = self.sam_predictor.predict_torch(
-                point_coords=points2ds[None, ...],
-                point_labels=torch.tensor([[1]] * points2ds.shape[0], dtype=torch.long),
-                boxes=None,
-                multimask_output=False,
-            )
-            mask = mask.squeeze().to(torch.float32)
-            masks.append(mask)
-            self.gaussian.apply_weights(cur_cam, weights, weights_cnt, mask)
-
-        weights /= weights_cnt + 1e-7
-        selected_mask = weights > self.mask_thres.value
-        selected_mask = selected_mask[:, 0]
-
-        self.gaussian.set_mask(selected_mask)
-        self.gaussian.apply_grad_mask(selected_mask)
 
     @torch.no_grad()
     def sam_predict(self, image, cam):

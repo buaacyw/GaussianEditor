@@ -53,6 +53,7 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 </details>
 
 ## Release
+- [11/29] Release segmentation confidence score scaler. You can now scale the threshold of semantic tracing masks. 
 - [11/27] 🔥 We released **GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting** and beta version of GaussianEditing WebUI.
 
 ## Contents
@@ -93,5 +94,23 @@ The repo is still being under construction, thanks for your patience.
 - [x] Realised WebUI beta version and GaussianEditor.
 
 ## FAQ
+
+- Bad result for <b>Edit</b>. We are using [InstructPix2Pix](https://github.com/timothybrooks/instruct-pix2pix) to generate edited 2D images as editing guidance.
+Unfortunately, InstructPix2Pix only works on limited prompts, please first try [here](https://huggingface.co/spaces/timbrooks/instruct-pix2pix) if you are not sure whether your text prompts work.
+- Bad result for <b>Add</b>. We use [ControlNet-Inpainting](https://github.com/lllyasviel/ControlNet) to first generate 2D inpainting and then transfer it into 3D. Also it doesn't work for bad prompts. Please try to enlarge your inpainting mask and try more seeds.
+- Bad result for <b>Segmentation</b>. Try scale the segmentation threshold, which changes the confidence score for segmentation.
+
+## Acknowledgement
+
+Our code is based on these wonderful repos:
+
+* [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
+* [Wonder3D](https://github.com/xxlong0/Wonder3D)
+* [Threestudio](https://github.com/threestudio-project/threestudio)
+* [Viser](https://github.com/nerfstudio-project/viser)
+* [InstructNerf2Nerf](https://github.com/ayaanzhaque/instruct-nerf2nerf)
+* [InstructPix2Pix](https://github.com/timothybrooks/instruct-pix2pix)
+* [Controlnet](https://github.com/lllyasviel/ControlNet)
+
 
 
