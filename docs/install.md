@@ -23,7 +23,7 @@ pip install -e viser
 cd ..
 ```
 
-7. (Optional) Download Wonder3D checkpoints [Required by 3D inpainting]
+7. (Optional) Download Wonder3D checkpoints [Required by <b>Add</b>]
 ```bash
 sh download_wonder3d.sh
 ```
