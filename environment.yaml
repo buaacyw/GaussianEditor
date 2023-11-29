@@ -11,4 +11,4 @@ dependencies:
   - pytorch=2.0.1=py3.8_cuda11.7*
   - torchvision=0.15.2=py38_cu117
   - pip:
-    - -r requirements.txt
+    - -r requirements.lock.txt
