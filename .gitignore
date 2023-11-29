@@ -201,3 +201,4 @@ cache/
 exp/
 !threestudio/data
 !threestudio/utils/wonder3D/mvdiffusion/data
+tmp_add/
