@@ -30,7 +30,7 @@
 
 <div align="center">
 
-[//]: # (<a href='https://arxiv.org/abs/2310.15169'><img src='https://img.shields.io/badge/arXiv-2310.15169-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+<a href='https://arxiv.org/abs/2311.14521'><img src='https://img.shields.io/badge/arXiv-2311.14521-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <a href='https://buaacyw.github.io/gaussian-editor/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <a href='https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen'><img src='https://img.shields.io/badge/Youtube-Video-red'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <a href='https://github.com/buaacyw/GaussianEditor/blob/master/LICENSE.txt'><img src='https://img.shields.io/badge/License-MIT-blue'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -53,6 +53,7 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 </details>
 
 ## Release
+- [11/29] Release segmentation confidence score scaler. You can now scale the threshold of semantic tracing masks. 
 - [11/27] 🔥 We released **GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting** and beta version of GaussianEditing WebUI.
 
 ## Contents
@@ -61,15 +62,20 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 - [Contents](#contents)
 - [Install](#install)
 - [WebUI Guide](#webui-guide)
+- [How to achieve better result](#how-to-achieve-better-result)
 - [Command Line](#command-line)
 - [TODO](#todo)
 - [FAQ](#faq)
 
 ## Install
-Our environment has been tested on Ubuntu 22 with CUDA 11.8. Please follow [Installation](https://github.com/buaacyw/GaussianEditor/blob/master/docs/install.md).
+Our environment has been tested on Ubuntu 22, CUDA 11.8 with 3090 and A6000. Please follow [Installation](https://github.com/buaacyw/GaussianEditor/blob/master/docs/install.md).
 
 ## WebUI Guide
 Please be aware that our WebUI is currently in a beta version. Powered by [Viser](https://github.com/nerfstudio-project/viser/tree/main), you can use our WebUI even if you are limited to remote server. For details, please follow [WebUI Guide](https://github.com/buaacyw/GaussianEditor/blob/master/docs/webui.md).
+
+## How to achieve better result
+
+The demand for 3D editing is very diverse. For instance, if you only want to change textures and materials or significantly modify geometry, it's clear that a one-size-fits-all hyperparameter won't work. Therefore, we cannot provide a default hyperparameter setting that works effectively in all scenarios. Therefore, if your results do not meet expectations, please refer to our [hyperparameter tuning](https://github.com/buaacyw/GaussianEditor/blob/master/docs/hyperparameter.md) document. In it, we detail the function of each hyperparameter and advise on which parameters to adjust when you encounter specific issues. 
 
 ## Command Line
 We also provide a command line version of GaussianEditor. Like WebUI, you need to specify your path to the pretrained Gaussians and COLMAP outputs as mentioned in [here](https://github.com/buaacyw/GaussianEditor/blob/1fa96851c132258e0547ba73372f37cff83c92c3/docs/webui.md?plain=1#L20).
@@ -80,13 +86,31 @@ Please check scripts in `sciprt` folder. Simply change `data.source` to your COL
 ## TODO
 
 The repo is still being under construction, thanks for your patience. 
-- [ ] Step-by-step tutorial for WebUI .
-- [ ] Tutorial for hyperparameter tuning.
+- [ ] Gradio demo.
 - [ ] Colab.
 - [ ] Windows support.
-- [ ] Docker support.
+- [x] Tutorial for hyperparameter tuning.
+- [x] Step-by-step tutorial for WebUI .
 - [x] Realised WebUI beta version and GaussianEditor.
 
 ## FAQ
+
+- Bad result for <b>Edit</b>. We are using [InstructPix2Pix](https://github.com/timothybrooks/instruct-pix2pix) to generate edited 2D images as editing guidance.
+Unfortunately, InstructPix2Pix only works on limited prompts, please first try [here](https://huggingface.co/spaces/timbrooks/instruct-pix2pix) if you are not sure whether your text prompts work.
+- Bad result for <b>Add</b>. We use [ControlNet-Inpainting](https://github.com/lllyasviel/ControlNet) to first generate 2D inpainting and then transfer it into 3D. Also it doesn't work for bad prompts. Please try to enlarge your inpainting mask and try more seeds.
+- Bad result for <b>Segmentation</b>. Try scale the segmentation threshold, which changes the confidence score for segmentation.
+
+## Acknowledgement
+
+Our code is based on these wonderful repos:
+
+* [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
+* [Wonder3D](https://github.com/xxlong0/Wonder3D)
+* [Threestudio](https://github.com/threestudio-project/threestudio)
+* [Viser](https://github.com/nerfstudio-project/viser)
+* [InstructNerf2Nerf](https://github.com/ayaanzhaque/instruct-nerf2nerf)
+* [InstructPix2Pix](https://github.com/timothybrooks/instruct-pix2pix)
+* [Controlnet](https://github.com/lllyasviel/ControlNet)
+
 
 

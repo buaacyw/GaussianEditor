@@ -31,7 +31,7 @@ huggingface_hub
 
 # for zero123
 einops
-kornia
+kornia==0.5.0
 taming-transformers-rom1504
 git+https://github.com/openai/CLIP.git
 
@@ -46,8 +46,15 @@ rembg
 git+https://github.com/ashawkey/kiuikit
 scikit-learn
 scipy
+viser
 ninja
 easydict
 albumentations==0.5.2
 webdataset
 git+https://github.com/luca-medeiros/lang-segment-anything.git
+
+
+#wonder3d
+nerfacc==0.3.3
+pyrender==0.1.45
+Pillow==9.5.0
