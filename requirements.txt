@@ -31,7 +31,7 @@ huggingface_hub
 
 # for zero123
 einops
-kornia==0.5.0
+kornia==0.7.0
 taming-transformers-rom1504
 git+https://github.com/openai/CLIP.git
 
