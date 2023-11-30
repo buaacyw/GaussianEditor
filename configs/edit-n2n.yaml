@@ -27,7 +27,6 @@ system:
   densification_interval: 100
   max_grad: 5
   min_opacity: 0.005
-  seg_prompt: grass
   prompt_processor_type: "stable-diffusion-prompt-processor"
   prompt_processor:
     pretrained_model_name_or_path: "runwayml/stable-diffusion-v1-5"

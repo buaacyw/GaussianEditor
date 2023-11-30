@@ -120,6 +120,8 @@ class WebUI:
 
         # diffusion model
         self.ip2p = None
+        self.ctn_ip2p = None
+
         self.ctn_inpaint = None
         self.ctn_ip2p = None
         self.training = False
@@ -222,6 +224,9 @@ class WebUI:
         with self.server.add_gui_folder("Edit Setting"):
             self.edit_type = self.server.add_gui_dropdown(
                 "Edit Type", ("Edit", "Delete", "Add")
+            )
+            self.guidance_type = self.server.add_gui_dropdown(
+                "Guidance Type", ("InstructPix2Pix", "ControlNet-Pix2Pix")
             )
             self.edit_frame_show = self.server.add_gui_checkbox(
                 "Show Edit Frame", initial_value=True, visible=False
@@ -419,6 +424,8 @@ class WebUI:
                 self.depth_scaler.visible = False
                 self.depth_end.visible = False
                 self.edit_frame_show.visible = True
+                self.guidance_type.visible = True
+
             elif self.edit_type.value == "Delete":
                 self.edit_text.visible = True
                 self.refine_text.visible = False
@@ -440,6 +447,7 @@ class WebUI:
                 self.depth_scaler.visible = False
                 self.depth_end.visible = False
                 self.edit_frame_show.visible = True
+                self.guidance_type.visible = False
 
             elif self.edit_type.value == "Add":
                 self.edit_text.visible = True
@@ -460,6 +468,7 @@ class WebUI:
                 self.depth_scaler.visible = False
                 self.depth_end.visible = False
                 self.edit_frame_show.visible = False
+                self.guidance_type.visible = False
 
         @self.save_button.on_click
         def _(_):
@@ -1118,18 +1127,32 @@ class WebUI:
 
     # In local edit, the whole gaussian don't need to be visible for edit
     def edit(self, edit_cameras, train_frames, train_frustums):
-        if not self.ip2p:
-            from threestudio.models.guidance.instructpix2pix_guidance import (
-                InstructPix2PixGuidance,
-            )
+        if self.guidance_type.value == "InstructPix2Pix":
+            if not self.ip2p:
+                from threestudio.models.guidance.instructpix2pix_guidance import (
+                    InstructPix2PixGuidance,
+                )
 
-            self.ip2p = InstructPix2PixGuidance(
-                OmegaConf.create({"min_step_percent": 0.02, "max_step_percent": 0.98})
-            )
+                self.ip2p = InstructPix2PixGuidance(
+                    OmegaConf.create({"min_step_percent": 0.02, "max_step_percent": 0.98})
+                )
+            cur_2D_guidance = self.ip2p
+        elif self.guidance_type.value == "ControlNet-Pix2Pix":
+            if not self.ctn_ip2p:
+                from threestudio.models.guidance.controlnet_guidance import (
+                    ControlNetGuidance,
+                )
+
+                self.ctn_ip2p = ControlNetGuidance(
+                    OmegaConf.create({"min_step_percent": 0.05,
+                                      "max_step_percent": 0.8,
+                                        "control_type": "p2p"})
+                )
+            cur_2D_guidance = self.ctn_ip2p
 
         origin_frames = self.render_cameras_list(edit_cameras)
         self.guidance = EditGuidance(
-            guidance=self.ip2p,
+            guidance=cur_2D_guidance,
             gaussian=self.gaussian,
             origin_frames=origin_frames,
             text_prompt=self.edit_text.value,

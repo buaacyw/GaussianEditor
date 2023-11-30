@@ -16,7 +16,7 @@ class GaussianEditor_Edit(GaussianEditor):
     class Config(GaussianEditor.Config):
         local_edit: bool = False
 
-        seg_prompt: str = "grass"
+        seg_prompt: str = ""
 
         second_guidance_type: str = "dds"
         second_guidance: dict = field(default_factory=dict)
