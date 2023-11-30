@@ -1,6 +1,8 @@
 omegaconf==2.3.0
 jaxtyping
 typeguard
+nerfacc==0.3.3
+pyrender
 git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 diffusers[torch]==0.19.3
 transformers==4.28.1
@@ -23,7 +25,6 @@ git+https://github.com/ashawkey/envlight.git
 torchmetrics
 
 # deepfloyd
-# xformers
 bitsandbytes==0.38.1
 sentencepiece
 safetensors
@@ -58,3 +59,8 @@ git+https://github.com/luca-medeiros/lang-segment-anything.git
 nerfacc==0.3.3
 pyrender==0.1.45
 Pillow==9.5.0
+
+
+# gaussian splatting
+gaussiansplatting/submodules/diff-gaussian-rasterization
+gaussiansplatting/submodules/simple-knn
