@@ -72,7 +72,16 @@ Our environment has been tested on Ubuntu 22, CUDA 11.8 with 3090, A5000 and A60
 1. Clone our repo and create conda environment
 ```
 git clone https://github.com/buaacyw/GaussianEditor.git && cd GaussianEditor
-conda env create -f environment.yaml 
+
+# (Option one) Install by conda
+conda env create -f environment.yaml
+
+# (Option two) You can also install by pip
+# CUDA version 11.7
+pip install torch==2.0.1+cu117 torchvision==0.15.2+cu117 --extra-index-url https://download.pytorch.org/whl/cu117
+# CUDA version 11.8
+pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
 ```
 
 2. (Optional) Install our forked viser [Required by WebUI)
