@@ -302,6 +302,14 @@ class WebUI:
                     step=0.001,
                     initial_value=0.01,
                 )
+                self.min_opacity = self.server.add_gui_slider(
+                    "Min Opacity",
+                    min=0.0,
+                    max=0.1,
+                    step=0.0001,
+                    initial_value=0.005,
+                )
+
                 self.per_editing_step = self.server.add_gui_slider(
                     "Edit Interval", min=4, max=48, step=1, initial_value=10
                 )
@@ -523,6 +531,7 @@ class WebUI:
                 text_prompt = self.sam_group_name.value
                 # buggy here, if self.sam_enabled == True, will raise strange errors. (Maybe caused by multi-threading access to the same SAM model)
                 self.sam_enabled.value = False
+                self.add_sam_points.value = False
                 # breakpoint()
                 _, semantic_gaussian_mask = self.update_sam_mask_with_point_prompt(
                     save_mask=True
@@ -692,7 +701,7 @@ class WebUI:
             override_color=self.gaussian.mask[..., None].float().repeat(1, 3),
         )["render"]
         semantic_map = torch.norm(semantic_map, dim=0)
-        semantic_map = semantic_map > 0.3  # 1, H, W
+        semantic_map = semantic_map > 0.0  # 1, H, W
         semantic_map_viz = image.detach().clone()  # C, H, W
         semantic_map_viz = semantic_map_viz.permute(1, 2, 0)  # 3 512 512 to 512 512 3
         semantic_map_viz[semantic_map] = 0.50 * semantic_map_viz[
@@ -878,41 +887,36 @@ class WebUI:
         weights = torch.zeros_like(self.gaussian._opacity)
         weights_cnt = torch.zeros_like(self.gaussian._opacity, dtype=torch.int32)
 
-        for id, cur_cam in tqdm(enumerate(self.colmap_cameras)):
-            if id % 5 != 0:
-                continue
-            # TODO: check frame dtype (float32 or uint8) and device
-            if len(points3d) > 0:
-                cur_cam = self.colmap_cameras[id]
-                points2ds = project(cur_cam, points3d)
-                img = render(cur_cam, self.gaussian, self.pipe, self.background_tensor)[
-                    "render"
-                ]
-                # breakpoint()
-                # if id in self.sam_features:
-                #     self.sam_predictor.features = self.sam_features[id]
-                # else:
-                self.sam_predictor.set_image(
-                    np.asarray(to_pil_image(img.cpu())),
-                )
-                self.sam_features[id] = self.sam_predictor.features
-                # print(points2ds)
-                mask, _, _ = self.sam_predictor.predict(
-                    point_coords=points2ds.cpu().numpy(),
-                    point_labels=np.array([1] * points2ds.shape[0], dtype=np.int64),
-                    box=None,
-                    multimask_output=False,
-                )
-                mask = torch.from_numpy(mask).to(torch.bool).to(get_device())
-                self.gaussian.apply_weights(
-                    cur_cam, weights, weights_cnt, mask.to(torch.float32)
-                )
-                masks.append(mask)
-            else:
-                mask = torch.zero_like(
-                    [cur_cam.image_height, cur_cam.image_width], dtype=torch.bool
-                )
-                masks.append(mask)
+        total_view_num = len(self.colmap_cameras)
+        random.seed(0)  # make sure same views
+        view_index = random.sample(
+            range(0, total_view_num),
+            min(total_view_num, self.seg_cam_num.value),
+        )
+        for idx in tqdm(view_index):
+            cur_cam = self.colmap_cameras[idx]
+            assert len(points3d) > 0
+            points2ds = project(cur_cam, points3d)
+            img = render(cur_cam, self.gaussian, self.pipe, self.background_tensor)[
+                "render"
+            ]
+
+            self.sam_predictor.set_image(
+                np.asarray(to_pil_image(img.cpu())),
+            )
+            self.sam_features[idx] = self.sam_predictor.features
+            # print(points2ds)
+            mask, _, _ = self.sam_predictor.predict(
+                point_coords=points2ds.cpu().numpy(),
+                point_labels=np.array([1] * points2ds.shape[0], dtype=np.int64),
+                box=None,
+                multimask_output=False,
+            )
+            mask = torch.from_numpy(mask).to(torch.bool).to(get_device())
+            self.gaussian.apply_weights(
+                cur_cam, weights, weights_cnt, mask.to(torch.float32)
+            )
+            masks.append(mask)
 
         weights /= weights_cnt + 1e-7
 
@@ -1459,7 +1463,7 @@ class WebUI:
                 self.gaussian.densify_and_prune(
                     max_grad=1e-7,
                     max_densify_percent=self.max_densify_percent.value,
-                    min_opacity=0.005,
+                    min_opacity=self.min_opacity.value,
                     extent=self.cameras_extent,
                     max_screen_size=5,
                 )
