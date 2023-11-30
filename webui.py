@@ -1137,6 +1137,7 @@ class WebUI:
                     OmegaConf.create({"min_step_percent": 0.02, "max_step_percent": 0.98})
                 )
             cur_2D_guidance = self.ip2p
+            print("using InstructPix2Pix!")
         elif self.guidance_type.value == "ControlNet-Pix2Pix":
             if not self.ctn_ip2p:
                 from threestudio.models.guidance.controlnet_guidance import (
@@ -1149,6 +1150,7 @@ class WebUI:
                                         "control_type": "p2p"})
                 )
             cur_2D_guidance = self.ctn_ip2p
+            print("using ControlNet-InstructPix2Pix!")
 
         origin_frames = self.render_cameras_list(edit_cameras)
         self.guidance = EditGuidance(
