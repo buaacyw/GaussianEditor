@@ -60,15 +60,33 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 - [Demo Videos](#demo-videos)
 - [Release](#release)
 - [Contents](#contents)
-- [Install](#install)
+- [Installation](#installation)
 - [WebUI Guide](#webui-guide)
 - [How to achieve better result](#how-to-achieve-better-result)
 - [Command Line](#command-line)
 - [TODO](#todo)
 - [FAQ](#faq)
 
-## Install
-Our environment has been tested on Ubuntu 22, CUDA 11.8 with 3090 and A6000. Please follow [Installation](https://github.com/buaacyw/GaussianEditor/blob/master/docs/install.md).
+## Installation
+Our environment has been tested on Ubuntu 22, CUDA 11.8 with 3090, A5000 and A6000.
+1. Clone our repo and create conda environment
+```
+git clone https://github.com/buaacyw/GaussianEditor.git && cd GaussianEditor
+conda env create -f environment.yaml 
+```
+
+2. (Optional) Install our forked viser [Required by WebUI)
+```
+mkdir extern && cd extern
+git clone https://github.com/heheyas/viser 
+pip install -e viser
+cd ..
+```
+
+3. (Optional) Download Wonder3D checkpoints [Required by <b>Add</b>]
+```bash
+sh download_wonder3d.sh
+```
 
 ## WebUI Guide
 Please be aware that our WebUI is currently in a beta version. Powered by [Viser](https://github.com/nerfstudio-project/viser/tree/main), you can use our WebUI even if you are limited to remote server. For details, please follow [WebUI Guide](https://github.com/buaacyw/GaussianEditor/blob/master/docs/webui.md).
