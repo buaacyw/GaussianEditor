@@ -82,6 +82,10 @@ pip install torch==2.0.1+cu117 torchvision==0.15.2+cu117 --extra-index-url https
 # CUDA version 11.8
 pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
+
+# (Option three) If the below two options fail, please try this:
+# For CUDA 11.8
+bash install.sh
 ```
 
 2. (Optional) Install our forked viser [Required by WebUI)

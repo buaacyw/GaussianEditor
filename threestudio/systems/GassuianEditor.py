@@ -49,7 +49,7 @@ class GaussianEditor(BaseLift3DSystem):
         rotation_lr_scaler: float = 1
 
         # lr
-        mask_thres: float = 0.8
+        mask_thres: float = 0.5
         max_grad: float = 0.5
         min_opacity: float = 0.005
 

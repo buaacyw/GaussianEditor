@@ -1,4 +1,4 @@
-name: GaussianEditor
+name: GaussianEditor1
 channels:
   - pytorch
   - nvidia
