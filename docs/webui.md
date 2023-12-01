@@ -5,7 +5,7 @@ Download MipNeRF-360 dataset with our script `download.sh`:
 ```
 sh download.sh
 ```
-Or use other dataset, following the instruction of [3DGS](https://github.com/graphdeco-inria/gaussian-splatting#processing-your-own-scenes)
+Or use other dataset, such as [InstructNerf2Nerf dataset](https://drive.google.com/drive/folders/1v4MLNoSwxvSlWb26xvjxeoHpgjhi_s-s), following the instruction of [3DGS](https://github.com/graphdeco-inria/gaussian-splatting#processing-your-own-scenes)
 
 
 Download pre-trained `.ply` model from [3DGS](https://github.com/graphdeco-inria/gaussian-splatting#evaluation) (already done if you use `download.sh`):
