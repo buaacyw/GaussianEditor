@@ -17,6 +17,7 @@ pip install viser
 pip install torch_efficient_distloss
 pip install mediapy
 pip install plyfile
+pip uninstall torch torchvision
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 cd ../..
 mkdir extern && cd extern
