@@ -18,5 +18,6 @@ dependencies:
   # for faster setup.up building?
   - ninja=1.11.1
   - pip:
-    - xformers --index-url https://download.pytorch.org/whl/cu118
+    - --extra-index-url https://download.pytorch.org/whl/cu118
     - -r requirements.lock.txt
+    - xformers==0.0.22.post7+cu118
