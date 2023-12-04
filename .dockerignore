@@ -1,0 +1,6 @@
+Dockerfile
+__pycache__
+dataset
+extern
+.threestudio_cache
+threestudio/utils/wonder3D/ckpts

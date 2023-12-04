@@ -1,0 +1,8 @@
+20,21c20,21
+<   - pip:
+<     - -r requirements.lock.txt
+\ No newline at end of file
+---
+> #  - pip:
+> #    - -r requirements.lock.txt
+\ No newline at end of file
