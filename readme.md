@@ -53,6 +53,7 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 </details>
 
 ## Release
+- [12/5] Docker support. Great thanks to [jhuangBU](https://github.com/jhuangBU). For windows, you can try [this](https://github.com/buaacyw/GaussianEditor/issues/9).
 - [11/29] Release segmentation confidence score scaler. You can now scale the threshold of semantic tracing masks. 
 - [11/27] 🔥 We released **GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting** and beta version of GaussianEditing WebUI.
 
