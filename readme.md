@@ -131,6 +131,7 @@ The repo is still being under construction, thanks for your patience.
 Unfortunately, InstructPix2Pix only works on limited prompts, please first try [here](https://huggingface.co/spaces/timbrooks/instruct-pix2pix) if you are not sure whether your text prompts work.
 - Bad result for <b>Add</b>. We use [ControlNet-Inpainting](https://github.com/lllyasviel/ControlNet) to first generate 2D inpainting and then transfer it into 3D. Also it doesn't work for bad prompts. Please try to enlarge your inpainting mask and try more seeds.
 - Bad result for <b>Segmentation</b>. Try scale the segmentation threshold, which changes the confidence score for segmentation.
+- Missing weights for DPT. Please read this [issue](https://github.com/buaacyw/GaussianEditor/issues/10)
 
 ## Acknowledgement
 
