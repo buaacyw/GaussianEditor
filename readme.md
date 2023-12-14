@@ -118,9 +118,7 @@ Please check scripts in `sciprt` folder. Simply change `data.source` to your COL
 ## TODO
 
 The repo is still being under construction, thanks for your patience. 
-- [ ] Gradio demo.
-- [ ] Colab.
-- [ ] Windows support.
+- [x] Windows support.
 - [x] Tutorial for hyperparameter tuning.
 - [x] Step-by-step tutorial for WebUI .
 - [x] Realised WebUI beta version and GaussianEditor.
