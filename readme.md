@@ -36,9 +36,7 @@
  <a href='https://github.com/buaacyw/GaussianEditor/blob/master/LICENSE.txt'><img src='https://img.shields.io/badge/License-SLab-blue'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 </div>
-<div align="center">
-  <b>Note: This repo is still under construction. We aim to build this repo as a swift, controllable, and interactive 3D editing tool. We welcome any collaboration. If you're interested in connecting or partnering with us, please don't hesitate to reach out via email (YIWEN002@e.ntu.edu.sg).</b>
-</div>
+
 
 ## Demo Videos
 <details open>
