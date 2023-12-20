@@ -33,12 +33,10 @@
 <a href='https://arxiv.org/abs/2311.14521'><img src='https://img.shields.io/badge/arXiv-2311.14521-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <a href='https://buaacyw.github.io/gaussian-editor/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <a href='https://www.youtube.com/watch?v=TdZIICSFqsU&ab_channel=YiwenChen'><img src='https://img.shields.io/badge/Youtube-Video-red'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href='https://github.com/buaacyw/GaussianEditor/blob/master/LICENSE.txt'><img src='https://img.shields.io/badge/License-MIT-blue'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href='https://github.com/buaacyw/GaussianEditor/blob/master/LICENSE.txt'><img src='https://img.shields.io/badge/License-SLab-blue'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 </div>
-<div align="center">
-  <b>Note: This repo is still under construction. We aim to build this repo as a swift, controllable, and interactive 3D editing tool. We welcome any collaboration. If you're interested in connecting or partnering with us, please don't hesitate to reach out via email (YIWEN002@e.ntu.edu.sg).</b>
-</div>
+
 
 ## Demo Videos
 <details open>
@@ -53,6 +51,7 @@ https://github.com/buaacyw/GaussianEditor/assets/52091468/18dd3ef2-4066-428a-918
 </details>
 
 ## Release
+- [12/5] Docker support. Great thanks to [jhuangBU](https://github.com/jhuangBU). For windows, you can try [this](https://github.com/buaacyw/GaussianEditor/issues/9).
 - [11/29] Release segmentation confidence score scaler. You can now scale the threshold of semantic tracing masks. 
 - [11/27] 🔥 We released **GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting** and beta version of GaussianEditing WebUI.
 
@@ -117,9 +116,6 @@ Please check scripts in `sciprt` folder. Simply change `data.source` to your COL
 ## TODO
 
 The repo is still being under construction, thanks for your patience. 
-- [ ] Gradio demo.
-- [ ] Colab.
-- [ ] Windows support.
 - [x] Tutorial for hyperparameter tuning.
 - [x] Step-by-step tutorial for WebUI .
 - [x] Realised WebUI beta version and GaussianEditor.
@@ -130,6 +126,7 @@ The repo is still being under construction, thanks for your patience.
 Unfortunately, InstructPix2Pix only works on limited prompts, please first try [here](https://huggingface.co/spaces/timbrooks/instruct-pix2pix) if you are not sure whether your text prompts work.
 - Bad result for <b>Add</b>. We use [ControlNet-Inpainting](https://github.com/lllyasviel/ControlNet) to first generate 2D inpainting and then transfer it into 3D. Also it doesn't work for bad prompts. Please try to enlarge your inpainting mask and try more seeds.
 - Bad result for <b>Segmentation</b>. Try scale the segmentation threshold, which changes the confidence score for segmentation.
+- Missing weights for DPT. Please read this [issue](https://github.com/buaacyw/GaussianEditor/issues/10)
 
 ## Acknowledgement
 
