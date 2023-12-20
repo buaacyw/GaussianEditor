@@ -17,6 +17,10 @@ unzip models.zip
 ```
 Or train from scratch following instructions of [3DGS](https://github.com/graphdeco-inria/gaussian-splatting#running).
 
+For `.splat` files demonstrated in our project page, you can download them from [here](https://huggingface.co/datasets/Yiwen-ntu/GaussianEditor_Result/tree/main).
+
+For `.ply` files of InstructNeRF2NeRF dataset we used in our demo (face and bear), you can find them [here](https://huggingface.co/datasets/Yiwen-ntu/GaussianEditor_Result/tree/main/InstructNeRF2NeRF_PLY_Files).
+
 #### 2. Start our webUI
 If you are ready with dataset, you can start our webUI by
 ```bash
