@@ -39,7 +39,7 @@ class GaussianEditor(BaseLift3DSystem):
         densify_until_iter: int = 4000
         densify_from_iter: int = 0
         densification_interval: int = 100
-        max_densify_percent: float = 0.1
+        max_densify_percent: float = 0.01
 
         gs_lr_scaler: float = 1
         gs_final_lr_scaler: float = 1
@@ -50,7 +50,7 @@ class GaussianEditor(BaseLift3DSystem):
 
         # lr
         mask_thres: float = 0.5
-        max_grad: float = 0.5
+        max_grad: float = 1e-7
         min_opacity: float = 0.005
 
         seg_prompt: str = ""
@@ -188,7 +188,7 @@ class GaussianEditor(BaseLift3DSystem):
                 override_color=self.gaussian.mask[..., None].float().repeat(1, 3),
             )["render"]
             semantic_map = torch.norm(semantic_map, dim=0)
-            semantic_map = semantic_map > 0.3
+            semantic_map = semantic_map > 0.8
             semantic_map_viz = image.detach().clone()
             semantic_map_viz = semantic_map_viz.permute(
                 1, 2, 0
@@ -272,13 +272,12 @@ class GaussianEditor(BaseLift3DSystem):
                         self.true_global_step >= self.cfg.densify_from_iter
                         and self.true_global_step % self.cfg.densification_interval == 0
                 ):  # 500 100
-                    size_threshold = 5
                     self.gaussian.densify_and_prune(
                         self.cfg.max_grad,
                         self.cfg.max_densify_percent,
                         self.cfg.min_opacity,
                         self.cameras_extent,
-                        size_threshold,
+                        5,
                     )
 
     def validation_step(self, batch, batch_idx):
