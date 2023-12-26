@@ -19,14 +19,14 @@ Or train from scratch following instructions of [3DGS](https://github.com/graphd
 
 For `.splat` files demonstrated in our project page, you can download them from [here](https://huggingface.co/datasets/Yiwen-ntu/GaussianEditor_Result/tree/main).
 
-For `.ply` files of InstructNeRF2NeRF dataset we used in our demo (face and bear), you can find them [here](https://huggingface.co/datasets/Yiwen-ntu/GaussianEditor_Result/tree/main/InstructNeRF2NeRF_PLY_Files).
+For `.ply` files and Colmap results of InstructNeRF2NeRF dataset we used in our demo (face and bear), you can find them [here](https://huggingface.co/datasets/Yiwen-ntu/GaussianEditor_Result/tree/main/InstructNeRF2NeRF_PLY_Files).
 
 #### 2. Start our webUI
 If you are ready with dataset, you can start our webUI by
 ```bash
 python webui.py --gs_source <your-ply-file> --colmap_dir <dataset-dir>
 ```
-where `--gs_source` refers to the pre-trained `.ply` file (something like ../../point_cloud.ply), and `--colmap_dir` refers to where the Colmap output resides (the colmap output `sparse` folder should be the subfolder of `--colmap_dir`).
+where `--gs_source` refers to the pre-trained `.ply` file (something like ../../point_cloud.ply), and `--colmap_dir` refers to where the Colmap output resides (the colmap output `sparse` folder should be the subfolder of `--colmap_dir`). Take the face scene of InstructNeRF2NeRF dataset as example, after download them from [here](https://huggingface.co/datasets/Yiwen-ntu/GaussianEditor_Result/tree/main/InstructNeRF2NeRF_PLY_Files), `--gs_source` should be "../face/face.ply" and `--colmap_dir` should be "../face".
 
 
 For example, if you are using `download.sh` (which means adopting pre-trained GS from 3DGS and download the corresponding `.ply` files into ./dataset/<scene-name>), you can start with
