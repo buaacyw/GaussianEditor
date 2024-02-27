@@ -2,7 +2,7 @@
 <p align="center">
   <img src="docs/figs/logo.png" align="center" width="50%">
   
-  <h3 align="center"><strong>GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting</strong></h3>
+  <h3 align="center"><strong>[CVPR 2024] GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting</strong></h3>
 
   <p align="center">
     <a href="https://buaacyw.github.io/">Yiwen Chen</a><sup>*1,2</sup>,</span>
