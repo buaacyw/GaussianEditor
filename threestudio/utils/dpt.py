@@ -1001,7 +1001,7 @@ class DPT:
         self.device = device
 
         if self.mode == "depth":
-            path = ".cache/dpt/omnidata_dpt_depth_v2.ckpt"
+            path = "dpt/omnidata_dpt_depth_v2.ckpt"
             self.model = DPTDepthModel(backbone="vitb_rn50_384")
             self.aug = transforms.Compose(
                 [
@@ -1010,7 +1010,7 @@ class DPT:
                 ]
             )
         elif self.mode == "normal":
-            path = ".cache/dpt/omnidata_dpt_normal_v2.ckpt"
+            path = "dpt/omnidata_dpt_normal_v2.ckpt"
             self.model = DPTDepthModel(backbone="vitb_rn50_384", num_channels=3)
             self.aug = transforms.Compose(
                 [
